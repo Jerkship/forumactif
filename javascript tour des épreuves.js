@@ -1,3 +1,72 @@
+const BESTIAIRE = {
+  faible: [
+    { nom: "Gobelin Grincheux", sante: "Faible", force: 2, dex: 3, int: 1, consti: 1, pouvoir: 0 },
+    { nom: "Sanglier Enragé", sante: "Faible", force: 3, dex: 2, int: 1, consti: 2, pouvoir: 0 },
+    { nom: "Esprit Errant", sante: "Faible", force: 1, dex: 2, int: 3, consti: 1, pouvoir: 0 }
+  ],
+  moyen: [
+    { nom: "Orc Berserker", sante: "Moyenne", force: 5, dex: 3, int: 1, consti: 3, pouvoir: 1 },
+    { nom: "Spectre de Givre", sante: "Moyenne", force: 2, dex: 4, int: 5, consti: 2, pouvoir: 1 }
+  ],
+  fort: [
+    { nom: "Garde Déchu", sante: "Élevée", force: 6, dex: 4, int: 3, consti: 5, pouvoir: 2 },
+    { nom: "Seigneur Loup", sante: "Élevée", force: 7, dex: 5, int: 2, consti: 5, pouvoir: 2 }
+  ],
+  très_fort: [
+    { nom: "Seigneur Démoniaque", sante: "Très élevée", force: 9, dex: 7, int: 5, consti: 8, pouvoir: 3 }
+  ]
+};
+function genererMonstres(etage) {
+  let type = "faible";
+  if (etage > 30 && etage <= 60) type = "moyen";
+  if (etage > 60 && etage <= 90) type = "fort";
+  if (etage > 90) type = "très_fort";
+
+  const bestiaire = BESTIAIRE[type];
+  const nombre = Math.min(7, Math.max(3, Math.floor(Math.random() * 5) + 3)); // 3 à 7 monstres
+  const monstres = [];
+
+  for (let i = 0; i < nombre; i++) {
+    const monstre = bestiaire[Math.floor(Math.random() * bestiaire.length)];
+    monstres.push(monstre);
+  }
+  return monstres;
+}
+function afficherMonstres(monstres) {
+  const zone = document.getElementById('zone-monstres');
+  zone.innerHTML = '';
+
+  monstres.forEach(m => {
+    const carte = document.createElement('div');
+    carte.className = 'monstre-carte';
+    carte.innerHTML = `
+      <h4>${m.nom}</h4>
+      <p>Santé : ${m.sante}</p>
+      <p>Force : ${m.force} | Dextérité : ${m.dex} | Intelligence : ${m.int} | Constitution : ${m.consti} | Pouvoir : ${m.pouvoir}</p>
+    `;
+    zone.appendChild(carte);
+  });
+
+  zone.style.display = 'flex';
+}
+function afficherMonstres(monstres) {
+  const zone = document.getElementById('zone-monstres');
+  zone.innerHTML = '';
+
+  monstres.forEach(m => {
+    const carte = document.createElement('div');
+    carte.className = 'monstre-carte';
+    carte.innerHTML = `
+      <h4>${m.nom}</h4>
+      <p>Santé : ${m.sante}</p>
+      <p>Force : ${m.force} | Dextérité : ${m.dex} | Intelligence : ${m.int} | Constitution : ${m.consti} | Pouvoir : ${m.pouvoir}</p>
+    `;
+    zone.appendChild(carte);
+  });
+
+  zone.style.display = 'flex';
+}
+
 let joueurs = JSON.parse(localStorage.getItem("joueurs")) || {};
 let joueurActif = null;
 
