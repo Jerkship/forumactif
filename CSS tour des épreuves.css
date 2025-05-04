@@ -1,129 +1,56 @@
-:root {
-  --gold: #ffd700;
-  --dark-bg: #1e1e1e;
-  --panel-bg: #2a2a2a;
-  --light: #f0f0f0;
-  --card: #2c2c2c;
-  --accent: #7a6fff;
-}
 
+/* style-tour-des-epreuves.css */
 body {
-  background: linear-gradient(to bottom, var(--dark-bg), var(--card));
-  color: var(--light);
+  background: #1e1e1e;
+  color: #f0f0f0;
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
 }
-
 .container {
   display: flex;
   min-height: 100vh;
-  animation: fadeIn 1s ease;
 }
-
 .sidebar {
-  background: var(--panel-bg);
+  background: #2a2a2a;
   width: 260px;
   padding: 20px;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
+  color: #ffd700;
 }
-
-.sidebar h2 {
-  color: var(--gold);
-  text-align: center;
-}
-
-.sidebar label, .sidebar input, .sidebar select {
-  display: block;
+.sidebar input, .sidebar select {
   width: 100%;
+  padding: 8px;
+  margin-top: 5px;
   margin-bottom: 15px;
 }
-
-.sidebar input, .sidebar select {
-  padding: 8px;
+.btn {
+  background: #ffd700;
   border: none;
-  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
 }
-
 .main {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
 }
-
-h1, h2 {
-  text-align: center;
-  color: var(--gold);
-}
-
-.epreuve, .monstre-card {
-  background: var(--card);
-  border-radius: 10px;
+.epreuve {
+  background: #2c2c2c;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  animation: fadeSlide 0.8s ease;
+  border-radius: 10px;
 }
-
-.btn {
-  background: linear-gradient(135deg, var(--gold), #ffc107);
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #ffe45c, #ffba00);
-}
-
 .resultat {
   margin-top: 10px;
   font-weight: bold;
-  text-align: center;
 }
-
-.monstre-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.monstre-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.monstre-info {
-  text-align: center;
+.monstres {
   margin-top: 10px;
+  padding: 10px;
+  background: #333;
+  border-radius: 5px;
 }
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeSlide {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.monstre-carte {
-  background: var(--card);
-  border: 1px solid #555;
-  border-radius: 8px;
-  padding: 15px;
-  width: 200px;
-  text-align: center;
-  animation: fadeSlide 0.5s ease;
-}
-
-@keyframes fadeSlide {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.monstre {
+  margin-bottom: 5px;
 }
